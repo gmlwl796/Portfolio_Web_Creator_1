@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height">
+        <link rel="stylesheet" type="text/css" href="/view/css/base.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>페이지</title>
+        <style>
+        	body        { padding-top:20px; }
+    	</style>
+    </head>
+    <body>
+    <div class="container">
+        <% include ./head_nologin %>
+        <article class="container2">
+            <section class="component">
+                <h1>자기소개</h1>
+                <% if (portfolio) { %>
+                <p><%= portfolio.introduce %></p>
+                <% } %>
+            </section>
+
+            <section class="component">
+                <h1>기술스펙</h1>
+                <% if (portfolio) { %>
+                    <% if (portfolio.skills) { %>
+                    <ul>
+                        <% for(var i = 0; i< JSON.parse(portfolio.skills).length; i++){%> 
+                        <li><%= JSON.parse(portfolio.skills)[i].skill %></li> 
+                        <li><%= JSON.parse(portfolio.skills)[i].percentage%></li> 
+                        <% }; %>
+                    </ul>
+                    <% } %>
+                <% } %>
+            </section>
+
+            <section class="component">
+                <h1>커리어</h1>
+                <% if (portfolio) { %>
+                    <% if (portfolio.skills) { %>
+                    <ul>
+                        <% for(var i = 0; i< JSON.parse(portfolio.careers).length; i++){%> 
+                        <li><%= JSON.parse(portfolio.careers)[i].career %></li>
+                        <% }; %>
+                    </ul>
+                    <% } %>
+                <% } %>
+            </section>
+
+            <section class="component">
+                <h1>작업물</h1>
+                <p type="file"></p>
+            </section>
+
+            <section class="component">
+                <h1>찾아오시는길</h1>
+                <section> phone-number : 
+                        <% if (portfolio) { %>
+                            <p type="tel"> <%= portfolio.phone %></p>
+                            <% } %>
+                </section>
+                <section> home-page : 
+                        <% if (portfolio) { %>
+                            <p type="url"><%= portfolio.homepage %></p> 
+                            <% } %>
+                        
+                </section>
+            </section>
+        </article>
+    </div>
+    </body>
+</html> 

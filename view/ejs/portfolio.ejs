@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/view/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/view/css/theme.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <title>PORTFOLIO</title>
+
+    </head>
+    <body>
+    <div class="container">
+           <% if (portfolio) { %>
+            <% if (portfolio.profileImg) { %>
+                <div class="profile-image-view">
+                    <img src="/uploads/<%= portfolio.profileImg %>">
+                </div>
+                <% } else { %>
+                <div class="fa fa-user"></div>
+                <% } %>
+            <% } %>
+            <div class="text-center">
+                <h2><%= dname %></h2>
+            </div>
+       
+        
+        <article class="container2">            
+            <section class="component">
+                <h1>자기소개</h1>
+                <% if (portfolio) { %>
+                <% if (portfolio.introduce) { %>
+                <p><%= portfolio.introduce %></p>
+                <% } %>
+                <% } %>
+            </section>
+
+            <section class="component">
+                <h1>기술스펙</h1>
+                <% if (portfolio) { %>
+                    <% if (portfolio.skills) { %>
+                    <div id="chartContainer">
+                        <ul class="skills">
+                            <% for(var i = 0; i< JSON.parse(portfolio.skills).length; i++){%> 
+                            <li class="skill"><%= JSON.parse(portfolio.skills)[i].skill %></li> 
+                            <li class="percentage"><%= JSON.parse(portfolio.skills)[i].percentage%></li> 
+                            <% }; %>
+                        </ul>
+                    </div>
+                    <% } %>
+                <% } %>
+            </section>
+
+            <section class="component">
+                <h1>커리어</h1>
+                <% if (portfolio) { %>
+                    <% if (portfolio.careers) { %>
+                    <ul class="career-view">
+                        <% for(var i = 0; i< JSON.parse(portfolio.careers).length; i++){%> 
+                        <li><%= JSON.parse(portfolio.careers)[i].career %></li>
+                        <% }; %>
+                    </ul>
+                    <% } %>
+                <% } %>
+            </section>
+
+            <section class="component">
+                <h1>작업물</h1>
+                <div class="file-upload-read">
+
+                </div>
+            </section>
+
+            <section class="component">
+                <h1>찾아오시는길</h1>
+                <section class="input-form">
+                    <h3 for="phone-num"><span class="fa fa-phone"></span> Phone</h3>
+                    <% if (portfolio) { %>
+                    <p type="tel"> <%= portfolio.phone %></p>
+                    <% } %>
+                </section>
+                <section class="input-form">
+                    <h3 for="home-page"><span class="fa fa-home"></span> Home-page</h3>
+                    <% if (portfolio) { %>
+                    <p type="url"> <%= portfolio.homepage %></p> 
+                    <% } %>
+                        
+                </section>
+            </section>
+        </article>
+        <div align="left">
+        <article class="container">
+            <section class="comment-panel">
+
+            </section>
+        </article>
+        </div>
+</div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/view/js/comment.js"></script>
+        <script src="/view/js/file.js"></script>
+        <script src="/view/js/graph.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+        
+    </body>
+</html> 

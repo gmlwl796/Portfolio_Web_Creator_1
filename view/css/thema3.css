@@ -1,0 +1,202 @@
+.background {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: url("/view/img/oli-dale-139169-unsplash.jpg");
+    background-attachment: fixed;
+    background-size: 1920px;
+    z-index: -1;
+
+    filter: blur(8px);
+}
+
+label {
+    min-width: 80px;
+    font-weight: 100;
+}
+
+.component {
+    padding: 20px;
+    min-height: 600px;
+}
+
+.component h1 {
+    text-align: center;
+}
+
+.component hr {
+    border-top: 1px solid black;
+    width: 80px;
+}
+
+.component:nth-child(2n) hr {
+    color: white;
+    border-top: 1px solid white;
+}
+
+.component:nth-child(2n) {
+    background: #000000d1;
+    color: white;
+}
+
+.about {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 500px;
+    padding-top: 100px;
+
+    background: #ffffffd4;
+    border-radius: 10px;
+}
+
+.about h1 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.about .fa {
+    font-size: 100px;
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    padding-top: 20px;
+    background: #fff;
+}
+
+.profile-image-view, .profile-image-view img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+/* comment */
+.comment {
+    font-family: '맑은 고딕';
+    width: 550px;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 100;
+}
+
+.comment-panel {
+    margin: 0 auto;
+    width: 800px;
+    padding: 20px;
+}
+
+.comment-panel h2 {
+    padding-left: 20px;
+}
+
+.comment-panel ul {
+    list-style-type: none;
+    margin: 30px 0;
+    padding: 0;
+}
+
+.comment-panel li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.comment-panel .name {
+    text-align: left;
+}
+
+.comment-panel .date {
+    text-align: right;
+}
+
+.comment-panel .input-box {
+    width: 540px;
+    height: 70px;
+}
+
+.comment-panel button {
+    float: right;
+    width: 200px;
+    height: 70px;
+    font-size: 13px;
+}
+
+.comment-article {
+    background: #000000d1;
+    color: white;
+}
+
+.file-upload-read {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.file-upload-read .file-box {
+    display: inline-block;
+    width: 250px;
+    border: 2px solid #fff;
+    padding: 30px;
+    height: 250px;
+    margin: 5px;
+}
+
+.file-upload-read .file-box a {
+    color: white;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+.file-upload-read .file-box h2 {
+    font-size: 20px;
+    text-overflow: ellipsis;
+    width: 200px;
+    overflow-x: hidden;
+}
+
+.file-upload-read .file-box label {
+    display: block;
+    width: 150px;
+    word-wrap: break-word;
+    height: 80px;
+    margin: 0 auto;
+    overflow-y: hidden;
+}
+
+.etc-infomation {
+    font-size: 35px;
+    width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.etc-infomation ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.etc-infomation li {
+    margin-bottom: 80px;
+}
+
+.careers {
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+    font-size: 30px;
+}
+
+.careers li {
+    margin-bottom: 30px;
+}
+
+.comment-article textarea {
+    color: #000;
+}
+
+#chartContainer {
+    width: 500px;
+    margin: 0 auto;
+}

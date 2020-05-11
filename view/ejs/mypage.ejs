@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<title>My Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/view/css/base.css">
+<style>
+h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+body        { padding-top:30px; }
+</style>
+<body>
+<div class="container">
+    <% include ./head %>    
+<br><br>
+<!-- Page Container -->
+<div class="w3-container w3-content " style="max-width:1400px;margin-top:20px">    
+  <!-- The Grid -->
+  <div class="w3-row ">
+    <!-- Left Column -->
+    <div class="w3-col m3 w3-light-grey">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">My Profile</h4>
+         <div class="profile-image-view">
+            <% if (users.profileImg) { %>
+            <img src="/uploads/<%= users.profileImg %>">
+            <% } else { %>
+            <img src="/view/png/logo.png" class="w3-circle" style="height:165px;width:190px;left: -23px;position: relative;" alt="Avatar">
+            <% }; %>
+          </div>
+         <hr>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>  <%= users.displayName %></p>
+         <p><i class="fa fa-inbox fa-fw w3-margin-right w3-text-theme"></i> <%= users.email %></p>
+         <p><a href="/auth/mypage/<%= users.id %>/edit" style="text-decoration:none"><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>내 정보 수정</a></p>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <a href="/portfolio/<%= users.id %>" target="iframe_a" onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> MY PORTFOLIO</a>
+          <div id="Demo1" class="w3-hide w3-container w3-center">
+            <p>My PORTFOLIO 열람! </p>
+          </div>
+          <a href="/portfolio/<%= users.id %>/edit" onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-pencil fa-fw w3-margin-right"></i> MY PORTFOLIO 수정</a>
+          <div id="Demo2" class="w3-hide w3-container w3-center">
+            <p>수정페이지로 이동</p>
+          </div>
+           <% if (portfolio) { %>
+          <a href="/portfolio/<%= users.id %>/source" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-eye fa-fw w3-margin-right"></i>소스코드 보기 </a>
+          <% }; %>
+          <% if (portfolio) { %>
+            <button id="btn" onclick="getFileDown2()" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-download fa-fw w3-margin-right"></i>소스코드 다운</button>
+          <% }; %>
+          <% if (portfolio) { %>
+            <button id="btn" onclick="getFileDown()" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-download fa-fw w3-margin-right"></i>포트폴리오 PDF 저장하기</button>
+          <% }; %>
+        </div>      
+      </div>
+      <br>
+      
+      <!-- Interests --> 
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Our homepag is</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d1">Make</span>
+            <span class="w3-tag w3-small w3-theme">Your</span>
+            <span class="w3-tag w3-small w3-theme-d3">PORTFOLIO</span>
+            <span class="w3-tag w3-small w3-theme-d2">FREE</span>
+            <span class="w3-tag w3-small w3-theme-l1">QUICK</span>
+            <span class="w3-tag w3-small w3-theme-l2">COMFORTABLE</span>
+            <span class="w3-tag w3-small w3-theme-l4">PRETTY</span>  
+            <span class="w3-tag w3-small w3-theme-l3">DOWNLOAD</span>
+          </p>
+        </div>
+      </div>
+      <br>
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m9 ">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+               <div class="w3-margin"><br>
+        		<img src="/view/png/logo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        		<h4><%= users.displayName %></h4><br>
+        		<hr class="w3-clear">
+              <iframe height="600px" width="100%" src="/view/png/logo21.png" name="iframe_a" frameborder= 0  scrolling="auto"></iframe>
+                   
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- End Page Container -->
+</div>
+    </div>
+<br>
+    </div>
+<script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+ 
+    window.onload = function(){
+        
+    }
+    function getFileDown(){
+        window.location = "/portfolio/<%= users.id %>/download";
+    }
+    function getFileDown2(){
+        window.location = "/portfolio/<%= users.id %>/sourcedownload";
+    }
+</script>
+
+</body>
+</html> 

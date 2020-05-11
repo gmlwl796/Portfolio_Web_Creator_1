@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/view/css/register.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+</head>
+<style>
+body {
+    font-family: 'Lobster';
+}    
+</style>        
+<body>
+
+    <div id="id01" class="modal">
+      <span onclick="location.href='/'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content" action="/auth/register" method="post">
+        <div class="container">
+          <center><h1>Sign Up</h1></center>
+          <hr>
+          <label for="username"><b>ID </b></label>
+          <input type="text" name="username" placeholder="ID를 입력하세요" required>
+
+          <label for="psw"><b>비밀번호 </b></label>
+          <input type="password" name="password" placeholder="비밀번호를 입력하세요" required>
+
+          <label for="displayName"><b>별명 </b></label>
+          <input type="text" name="displayName" placeholder="별명을 입력하세요" required>
+
+          <div class="clearfix">
+            <button type="submit" class="signupbtn">가입하기</button>
+            <button type="button" onclick="location.href='/'" class="cancelbtn">취소</button>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+        var modal = document.getElementById('id01');
+
+    </script>
+
+</body>
+</html>

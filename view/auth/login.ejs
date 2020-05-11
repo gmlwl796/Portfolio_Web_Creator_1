@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/view/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+  <body>
+    <div class="hero-bkg-animated">
+    </div>
+        <div id="id01" class="modal">
+            
+          <form class="modal-content animate" action="/auth/login" method="post">
+            <div class="imgcontainer">
+              <span onclick="location.href='/'" class="close" title="Close Modal">&times;</span>
+              <img src="/view/png/logo.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+              <input type="text" placeholder="아이디" name="username">
+              <input type="password" placeholder="비밀번호를 입력하세요" name="password">
+            
+              <left><button type="submit"><b>Login</b></button></left>
+                <h5><center>또는</center></h5>
+                
+              <a href="/auth/facebook"><button type="button" class="button button2"><i class="fa fa-facebook fa-fw"></i>   facebook으로 로그인</button></a>
+                <a href="/auth/google"><button type="button" class="button button3"><i class="fa fa-google fa-fw"></i>   Google+로 로그인</button></a>
+              <a href="/auth/kakao"><button type="button" class="button button4"><i class="fa fa-comment fa-fw"></i>   Kakao로 로그인</button></a>
+                  <a href="/auth/instagram"><button type="button" class="button button5"><i class="fa fa-instagram fa-fw"></i>   Instagram으로 로그인</button></a>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+              <a href="/auth/register"><button type="button" class="justbtn button6"><b>계정만들기</b></button></a>
+              <button type="button" onclick="location.href='/'" class="cancelbtn"><b>취소</b></button>
+              
+            </div>
+          </form>
+        </div>
+    
+
+        <script>
+            
+            var modal = document.getElementById('id01');
+
+        </script>
+
+</body>
+</html>

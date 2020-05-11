@@ -1,0 +1,20 @@
+
+<div id="home" class="tab-pane fade in active">
+        <h2><b>PortFolio</b></h2>
+        <p>다른 사용자들의 포트폴리오를 구경하세요</p><br>
+        <div class="container">    
+            <div class="row">
+                <% if (portfolio) { %>
+                    <% for(var i = 0; i< portfolio.length; i++){%>
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                        <div class="panel-heading w3-center"><%= portfolio[i].displayName %></div>
+                        <div class="panel-body"><img src="https://www.roberthalf.com/sites/default/files/styles/full_width_content_image_1x_small_480/public/2017-08/digital-portfolio-tcg-07-2017.jpg?itok=Se3OBuI-" class="img-responsive" style="width:100%" alt="Image"></div>
+                        <div class="panel-footer w3-center"><i class="fa fa-desktop w3-margin-right"></i><a href="/portfolio/<%= portfolio[i].id %>" target="_blank">포트폴리오 보기</a></div>
+                        </div>
+                    </div> <% }; %>
+                <% }%>
+            </div>
+        </div><br>
+    </div>
+ 

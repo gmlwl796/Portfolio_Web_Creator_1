@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/view/css/thema3.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <title>PORTFOLIO</title>
+    </head>
+    <body>
+        <div class="background"></div>
+        
+        <article>            
+            <section class="component">
+                <div class="about">
+                <% if (portfolio) { %>
+                <% if (portfolio.profileImg) { %>
+                <div class="profile-image-view">
+                    <img src="/uploads/<%= portfolio.profileImg %>">
+                </div>
+                <% } else { %>
+                <div class="fa fa-user"></div>
+                <% } %>
+                <% } %>
+                    <h1><%= dname %></h1>
+                    <% if (portfolio) { %>
+                    <% if (portfolio.introduce) { %>
+                    <p><%= portfolio.introduce %></p>
+                    <% } %>
+                    <% } %>
+                </div>
+            </section>
+
+            <section class="component">
+                <h1>기술스펙</h1>
+                <hr/>
+                <% if (portfolio) { %>
+                    <% if (portfolio.skills) { %>
+                    <div id="chartContainer">
+                        <ul class="skills">
+                            <% for(var i = 0; i< JSON.parse(portfolio.skills).length; i++){%> 
+                            <li class="skill"><%= JSON.parse(portfolio.skills)[i].skill %></li> 
+                            <li class="percentage"><%= JSON.parse(portfolio.skills)[i].percentage%></li> 
+                            <% }; %>
+                        </ul>
+                    </div>
+                    <% } %>
+                <% } %>
+            </section>
+
+            <section class="component">
+                <h1>커리어</h1>
+                <hr/>
+                <% if (portfolio) { %>
+                    <% if (portfolio.skills) { %>
+                    <ul class="careers">
+                        <% for(var i = 0; i< JSON.parse(portfolio.careers).length; i++){%> 
+                        <li><%= JSON.parse(portfolio.careers)[i].career %></li>
+                        <% };  %>
+                    </ul>
+                    <% } %>
+                <% } %>
+            </section>
+
+            <section class="component">
+                <h1>작업물</h1>
+                <hr/>
+                <div class="file-upload-read">
+
+                </div>
+            </section>
+
+            <section class="component">
+                <h1>찾아오시는길</h1>
+                <hr/>
+                <section class="etc-infomation">
+                    <ul>
+                        <li> 
+                            <h2><span class="fa fa-phone"></span>  phone-number</h2>
+                            <label class="tel"> 
+                            <% if (portfolio) { %>
+                                <%= portfolio.phone %>
+                            <% } %>
+                            </label>
+                        </li>
+                        <li>
+                            <h2><span class="fa fa-home"></span> home-page<h2>
+                            <label class="url">
+                                <% if (portfolio) { %> 
+                                <%= portfolio.homepage %>
+                                <% } %>
+                            </label>
+                        </li>
+                    </ul>
+            </section>
+        </section>
+        </article>
+        <article class="comment-article">
+            <section class="comment-panel">
+
+            </section>
+        </article>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/view/js/graph.js"></script>
+        <script src="/view/js/comment.js"></script>
+        <script src="/view/js/file.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    </body>
+</html> 

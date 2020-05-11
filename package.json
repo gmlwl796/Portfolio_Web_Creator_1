@@ -1,0 +1,53 @@
+{
+  "name": "portfolio_web_creator",
+  "version": "1.0.0",
+  "description": "<h1 align=center>Portfolio Web Creator</h1>\r <p align=center>자신만의 포트폴리오 사이트를 만들어주는 서비스입니다.</p>",
+  "main": "./server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server/server.js",
+    "build": "babel --presets es2015 view/js/es6/ -d view/js/ -w",
+    "init": "node init.js",
+    "start": "node init.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kms1837/portfolio_web_creator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kms1837/portfolio_web_creator/issues"
+  },
+  "homepage": "https://github.com/kms1837/portfolio_web_creator#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "easy-zip": "0.0.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-mysql-session": "^1.3.0",
+    "express-session": "^1.15.6",
+    "html-pdf": "^2.2.0",
+    "html2canvas": "^1.0.0-alpha.12",
+    "multer": "^1.3.0",
+    "mysql": "^2.15.0",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth2": "^0.1.6",
+    "passport-instagram": "^1.0.0",
+    "passport-kakao": "0.0.5",
+    "passport-local": "^1.0.0",
+    "passport-naver": "^1.0.6",
+    "pbkdf2-password": "^1.2.1",
+    "promise-mysql": "^3.2.1",
+    "pug": "^2.0.3",
+    "request": "^2.87.0",
+    "website-scraper": "^3.3.3"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}

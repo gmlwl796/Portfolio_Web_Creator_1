@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title>EDIT YOUR PORTFOLIO</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/view/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/view/css/theme.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script type="text/javascript">
+            
+            $(document).ready(function () {
+                
+                $('.submit').click(function (e) {
+                    e.preventDefault();
+
+                    //form 
+                    var formArr = new Array();
+                    var length = $(".skill").length;
+                    
+                    for(var i=1; i<=length; i++)
+                    {
+                        var formObj = new Object();
+                        formObj.skill =
+                        $("input[class='skill']").eq(i-1).val() ;
+
+                        formObj.percentage =
+                        $("input[class='percentage']").eq(i-1).val() ;
+
+                      
+                        formArr.push(formObj) ;
+                        
+                        
+                    }
+                    var formData = JSON.stringify(formArr);
+
+                    // career
+                    var dataArr = new Array();
+                    var n = $(".career").length;
+                    for(var i=1; i<=n; i++)
+                    {
+                        var dataObj = new Object();
+                        dataObj.career =
+                        $("input[name='career']").eq(i-1).val() ;
+
+                        dataArr.push(dataObj) ;
+                    
+                    }
+                    var careerData = JSON.stringify(dataArr);
+     
+                    var radiobtn = $(":radio[name=temp]:checked").val();
+
+                    
+                    
+                    var payload = {
+                        pid : "<%= users.id %>",
+                        id : "<%= users.id %>",
+                        temp: radiobtn,
+                        introduce: $('.profile').val(),
+                        skills: formData,
+                        careers: careerData,
+                        phone: $('.phone').val(),
+                        homepage: $('.homepage').val(),
+                    };
+
+                    $.ajax({
+                        url :'/portfolio/<%= users.id %>/edit',
+                        type: "POST",
+                        contentType: "application/json;  charset=UTF-8",
+                        data: JSON.stringify(payload)
+                        
+                        }).done(function(){
+                        console.log('done');
+                        window.location.href='/portfolio/<%= users.id %>';
+                    });
+                });
+            });
+
+        </script>
+        <style>
+            .container {
+                padding-top: 80px;
+            }
+            table       { width:100%;}
+            th, td {
+                border: 1px dotted gray;
+                border-collapse: collapse;  
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+    	</style>
+    </head>
+    <body>
+    <% include ./head %>
+    <div class="container">
+   
+            <div class="text-center">
+                <h2>PortFolio Edit</h2>
+            </div>
+        
+        <article class="container2">
+            <section class="component">
+                <h1>테마 선택</h1>
+            <table class="thema-select">
+                <tr>
+                    <th><input type="radio" name="temp" checked="checked" value="0"> basic style</th>
+                    <th><input type="radio" name="temp" value="1"> white style</th>
+                    <th><input type="radio" name="temp" value="2"> black style</th>
+                    <th><input type="radio" name="temp" value="3"> simple style</th>
+                </tr>
+                <tr>
+                    <td><a href="/portfolio/<%= users.id %>/temp0" target="_blank" class="btn btn-default btn-sm">basic 미리보기</a></td>
+                    <td><a href="/portfolio/<%= users.id %>/temp1" target="_blank" class="btn btn-default btn-sm">white 미리보기</a></td>
+                    <td><a href="/portfolio/<%= users.id %>/temp2" target="_blank" class="btn btn-default btn-sm">black 미리보기</a></td>
+                    <td><a href="/portfolio/<%= users.id %>/temp3" target="_blank" class="btn btn-default btn-sm">simple 미리보기</a></td>
+                </tr>
+            </table>
+            </section>
+            
+            <section class="component">
+                <h1>자기소개</h1>
+                <textarea class="profile" id="introduce" name="introduce" data-gramm_editor="false"> 자기소개 입력</textarea>
+            </section>
+
+            <section class="component">
+                <h1> 
+                    기술스펙
+                    <a class="fas fa-plus addskill"> 추가</a>
+                </h1>
+
+                <form id="form"> 
+                    <fieldset class=skills>
+                        <legend>보유기술 폼</legend>
+                            <div>
+                                <label for="skill">보유기술 : </label>
+                                <input type="text" class="skill"> 
+                            </div>
+                            <div>
+                                <label for="percentage">능숙도(등급) : </label>
+                                <input type="number" class="percentage" min=1> 
+                            </div>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section class="component">
+                <h1>
+                    커리어
+                    <a class="fas fa-plus addcareer"> 추가</a>
+                </h1>
+                
+                
+                <div class="careers"> 
+                    <input type="text" name="career"  class="career" style="margin-right: 16px;"> 
+                </div>
+                
+            </section>
+
+            <section class="component file-upload">
+                <h1>작업물</h1>
+                <h1><a class="fas addfile"><span class="fa fa-plus"></span> 추가</a></h1>
+            </section>
+
+            <section class="component"> 
+                <h1>찾아오시는길</h1>
+
+                <section class="input-form"> 
+                    <h3 for="phone-num"><span class="fa fa-phone"></span> Phone</h3>
+                    <input type="tel" id="phone" class="phone" name = "phone" > </section>
+                <section class="input-form"> 
+                    <h3 for="home-page"><span class="fa fa-home"></span> Home-page</h3>
+                    <input type="url" id="homepage" class="homepage" name = "homepage"> </section>
+            </section>
+        </article>
+
+        <footer>
+            <input type="submit" class="submit" value="Submit">
+        </footer>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="/view/js/main.js"></script>
+        <script src="/view/js/file.js"></script>
+    </body>
+</html>

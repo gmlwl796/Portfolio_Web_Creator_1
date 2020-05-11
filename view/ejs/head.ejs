@@ -1,0 +1,16 @@
+<div class="navi">
+    <div class="nav-content">
+        <ul class="nav nav-tabs">
+            <li class="active navbar-left"><a href="/portfolio"><b>PortFolio</b></a></li>
+            <li class="navbar-right"><a href="/auth/logout"><span class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
+            <li class="dropdown navbar-right">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="glyphicon glyphicon-user"></span><%= users.displayName %> <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="/auth/mypage/<%= users.id %>">마이페이지</a></li>
+                    <li><a href="/portfolio/<%= users.id %>" target="_blank">내 포트폴리오</a></li>                        
+                </ul>
+            </li>
+        </ul>
+    </div>    
+</div>

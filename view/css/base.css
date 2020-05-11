@@ -1,0 +1,182 @@
+
+
+body {
+    line-height: 1.2;
+    font-size: 1.4rem;
+}
+
+.container2 {
+    margin: 50px auto;
+    background-color: #fff;
+    width: 800px;
+    min-height: 500px;
+    padding: 10px;
+}
+
+.component {
+    border: 2px #ccc dashed;
+    min-height: 200px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#chartContainer{
+    display: block;
+    margin: 0 auto;
+    height:300px;
+    width: 640px;
+}
+h1 {
+    margin-bottom: 30px; 
+    font-size: 1.8rem;
+}
+.list{
+    padding : 0;
+    list-style: none;
+    
+}
+
+.profile {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 150px;
+
+}
+
+fieldset{
+    border-style: none;
+}
+
+legend {
+    background: rgb(255, 255, 0); 
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+label {
+    width: 8em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.fas{
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+}
+
+footer{
+    margin: 50px auto;
+    width: 800px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+.submit {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+/* comment */
+.comment {
+    font-family: '맑은 고딕';
+    width: 400px;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 100;
+}
+
+.comment-panel {
+    margin: 0 auto;
+    width: 800px;
+    padding: 20px;
+}
+
+.comment-panel h2 {
+    padding-left: 20px;
+}
+
+.comment-panel ul {
+    list-style-type: none;
+    margin: 30px 0;
+    padding: 0;
+}
+
+.comment-panel li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.comment-panel .name {
+    text-align: left;
+}
+
+.comment-panel .date {
+    text-align: right;
+}
+
+.comment-panel .input-box {
+    width: 540px;
+    height: 70px;
+}
+
+.comment-panel button {
+    float: right;
+    width: 200px;
+    height: 70px;
+    font-size: 13px;
+}
+
+.file-box {
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 650px;
+    margin: 10px 0;
+}
+
+.file-box input[type=file] {
+    float: left;
+}
+
+.file-box .file-upload-description {
+    width: 200px;
+    margin-right: 25px;
+}
+
+.file-upload-read .file-box .fa {
+    float: left;
+    font-size: 80px;
+    margin-right: 10px;
+}
+
+.file-upload-read .file-box {
+    height: 110px;
+    margin: 10px auto;
+}
+
+.file-upload-read a {
+    cursor: pointer;
+}
+
+.file-upload .addfile {
+    float: right;
+}
+
+.profile-image-edit-form { width: 300px; margin: 0 auto; width: 300px; }
+
+#image-upload { margin: 21px auto; }
+.profile-image-view {margin: 20px auto; background: #ccc;}
+.profile-image-view, .profile-image-view img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
