@@ -16,9 +16,9 @@
     <body>
     <div class="container">
            <% if (portfolio) { %>
-            <% if (portfolio.profileImg) { %>
+            <% if (users.profileImg) { %>
                 <div class="profile-image-view">
-                    <img src="/uploads/<%= portfolio.profileImg %>">
+                    <img src="/uploads/<%= users.profileImg %>">
                 </div>
                 <% } else { %>
                 <div class="fa fa-user"></div>
